@@ -1,0 +1,94 @@
+{
+  "placeholderImages": [
+    {
+      "id": "item-1",
+      "description": "Lab Coat (Medium)",
+      "imageUrl": "https://images.unsplash.com/photo-1580982172477-9373ff52ae43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsYWIlMjBjb2F0fGVufDB8fHx8MTc3MDQ3ODA1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lab coat"
+    },
+    {
+      "id": "item-2",
+      "description": "CAD Stationary Kit",
+      "imageUrl": "https://images.unsplash.com/photo-1610576661719-0d537b24b50e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlbmdpbmVlcmluZyUyMHRvb2xzfGVufDB8fHx8MTc3MDQ3ODA1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "engineering tools"
+    },
+    {
+      "id": "item-3",
+      "description": "Data Structures Textbook",
+      "imageUrl": "https://images.unsplash.com/photo-1581019055756-93b5361f9536?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wdXRlciUyMHRleHRib29rfGVufDB8fHx8MTc3MDQ3ODA1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "computer textbook"
+    },
+    {
+      "id": "item-4",
+      "description": "Mini Drafter",
+      "imageUrl": "https://images.unsplash.com/photo-1760720962365-6ae03435c02a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkcmFmdGluZyUyMHRvb2x8ZW58MHx8fHwxNzcwNDc4MDU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "drafting tool"
+    },
+    {
+      "id": "item-5",
+      "description": "Classmate Notebooks (Pack of 5)",
+      "imageUrl": "https://images.unsplash.com/photo-1639705124151-a05e2c11e13e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3RhY2slMjBub3RlYm9va3N8ZW58MHx8fHwxNzcwNDc4MDU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stack notebooks"
+    },
+    {
+      "id": "reward-1",
+      "description": "Sony WH-1000XM4",
+      "imageUrl": "https://images.unsplash.com/photo-1612858249937-1cc0852093dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aXJlbGVzcyUyMGhlYWRwaG9uZXN8ZW58MHx8fHwxNzcwNDE3NzU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wireless headphones"
+    },
+    {
+      "id": "reward-2",
+      "description": "Amazon Gift Card $25",
+      "imageUrl": "https://images.unsplash.com/photo-1549116917-bccf55924737?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnaWZ0JTIwY2FyZHxlbnwwfHx8fDE3NzAzODMxNDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gift card"
+    },
+    {
+      "id": "reward-3",
+      "description": "1-Year Spotify Premium",
+      "imageUrl": "https://images.unsplash.com/photo-1723710357254-dfee0e229728?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtdXNpYyUyMHN1YnNjcmlwdGlvbnxlbnwwfHx8fDE3NzA0NzgwNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "music subscription"
+    },
+    {
+      "id": "reward-4",
+      "description": "6-Month Netflix Subscription",
+      "imageUrl": "https://images.unsplash.com/photo-1714623290324-97fd836c471f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb3ZpZSUyMHN0cmVhbWluZ3xlbnwwfHx8fDE3NzA0NzgwNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "movie streaming"
+    },
+    {
+      "id": "reward-5",
+      "description": "College Backpack",
+      "imageUrl": "https://images.unsplash.com/photo-1765933613026-e9b31778f685?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2xsZWdlJTIwYmFja3BhY2t8ZW58MHx8fHwxNzcwNDc4MDU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "college backpack"
+    },
+    {
+      "id": "item-6",
+      "description": "Scientific Calculator (Casio)",
+      "imageUrl": "https://images.unsplash.com/photo-1595135597963-3a726199403d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzY2llbnRpZmljJTIwY2FsY3VsYXRvcnxlbnwwfHx8fDE3NzEwMDAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scientific calculator"
+    },
+    {
+      "id": "item-7",
+      "description": "Introduction to Algorithms (CLRS)",
+      "imageUrl": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZXh0Ym9va3N8ZW58MHx8fHwxNzcxMDAwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "algorithm textbook"
+    },
+    {
+      "id": "item-8",
+      "description": "Yoga Mat",
+      "imageUrl": "https://images.unsplash.com/photo-1591291621062-5245426693dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx5b2dhJTIwbWF0fGVufDB8fHx8MTc3MTAwMDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yoga mat"
+    },
+    {
+      "id": "item-9",
+      "description": "Used Bicycle",
+      "imageUrl": "https://images.unsplash.com/photo-1507035895480-2b3156c31fc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiaWN5Y2xlfGVufDB8fHx8MTc3MTAwMDAwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bicycle campus"
+    },
+    {
+      "id": "item-10",
+      "description": "Electric Kettle (1.5L)",
+      "imageUrl": "https://images.unsplash.com/photo-1621999905988-74c05562723c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxrZXR0bGV8ZW58MHx8fHwxNzcxMDAwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electric kettle"
+    }
+  ]
+}
