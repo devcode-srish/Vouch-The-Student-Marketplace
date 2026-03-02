@@ -1,3 +1,4 @@
+
 import type { Item, Seller, Reward } from "./types";
 import { PlaceHolderImages } from "./placeholder-images";
 
@@ -194,9 +195,9 @@ const rewardsBase: Omit<Reward, 'imageUrl' | 'imageHint'>[] = [
 // Create a map for quick lookup of image data
 const imageMap = new Map(PlaceHolderImages.map(p => [p.id, { imageUrl: p.imageUrl, imageHint: p.imageHint }]));
 
-// Combine base item data with image data, filtering out items without a specific image
+// Combine base item data with image data, strictly filtering out items without a specific image
 export const items: Item[] = itemsBase
-  .filter(item => imageMap.has(item.id))
+  .filter(item => imageMap.has(item.id) && imageMap.get(item.id)?.imageUrl && !imageMap.get(item.id)?.imageUrl.includes('placehold.co'))
   .map(item => {
     const imageData = imageMap.get(item.id)!;
     return { 
