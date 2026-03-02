@@ -28,7 +28,7 @@
     --chart-3: 276 30% 88%;
     --chart-4: 194 71% 59%;
     --chart-5: 212.7 26.8% 83.9%;
-    --radius: 0.3rem;
+    --radius: 1.5rem;
   }
  
   .dark {
@@ -70,17 +70,11 @@
 
 @layer utilities {
   @keyframes float {
-    0% {
-      transform: translateZ(0) rotateX(0) rotateY(0);
-      text-shadow: 0 0 5px hsla(var(--primary), 0.2);
+    0%, 100% {
+      transform: translateY(0px);
     }
     50% {
-      transform: translateZ(40px) rotateX(-10deg) rotateY(5deg) scale(1.05);
-      text-shadow: 0 10px 25px hsla(var(--primary), 0.4);
-    }
-    100% {
-      transform: translateZ(0) rotateX(0) rotateY(0);
-      text-shadow: 0 0 5px hsla(var(--primary), 0.2);
+      transform: translateY(-10px);
     }
   }
 
