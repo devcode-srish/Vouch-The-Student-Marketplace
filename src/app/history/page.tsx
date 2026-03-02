@@ -1,3 +1,4 @@
+
 "use client";
 
 import { usePurchases } from "@/hooks/use-purchases";
@@ -12,18 +13,19 @@ import { Badge } from "@/components/ui/badge";
 import type { PaymentStatus } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { AlgoIcon } from "@/components/icons/AlgoIcon";
+import { BeamsBackground } from "@/components/ui/beams-background";
 
 const statusStyles: Record<PaymentStatus, { className: string; icon: React.ReactNode }> = {
     Completed: {
-      className: "bg-green-100 text-green-800 border-green-200 hover:bg-green-100",
+      className: "bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/30",
       icon: <CheckCircle className="mr-1.5 h-4 w-4" />,
     },
     Held: {
-      className: "bg-yellow-100 text-yellow-800 border-yellow-200 hover:bg-yellow-100",
+      className: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30 hover:bg-yellow-500/30",
       icon: <AlertTriangle className="mr-1.5 h-4 w-4" />,
     },
     Failed: {
-      className: "bg-red-100 text-red-800 border-red-200 hover:bg-red-100",
+      className: "bg-red-500/20 text-red-400 border-red-500/30 hover:bg-red-500/30",
       icon: <XCircle className="mr-1.5 h-4 w-4" />,
     },
   };
@@ -32,7 +34,7 @@ const PaymentStatusBadge = ({ status }: { status: PaymentStatus }) => {
     if (!status) return null;
     const { className, icon } = statusStyles[status];
     return (
-        <Badge variant="outline" className={cn("font-medium", className)}>
+        <Badge variant="outline" className={cn("font-medium backdrop-blur-md", className)}>
             {icon}
             {status}
         </Badge>
@@ -43,97 +45,103 @@ export default function HistoryPage() {
   const { purchases, isLoaded } = usePurchases();
 
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-12">
-      <div className="text-center mb-8">
-        <ScrollText className="mx-auto h-12 w-12 text-primary" />
-        <h1 className="text-4xl font-bold font-headline mt-4">My Purchases</h1>
-        <p className="text-muted-foreground mt-2">
-          A record of all your transactions on Vouche.
-        </p>
-      </div>
-
-      {!isLoaded && (
-        <div className="space-y-4">
-            <Skeleton className="h-32 w-full" />
-            <Skeleton className="h-32 w-full" />
-            <Skeleton className="h-32 w-full" />
+    <BeamsBackground>
+      <div className="container mx-auto max-w-4xl px-4 py-12">
+        <div className="text-center mb-12">
+          <div className="inline-flex p-4 bg-primary/20 rounded-2xl mb-6 backdrop-blur-xl border border-primary/20">
+            <ScrollText className="h-12 w-12 text-primary" />
+          </div>
+          <h1 className="text-4xl font-bold font-headline text-white">My Purchases</h1>
+          <p className="text-white/60 mt-4 text-lg">
+            A record of all your transactions on Vouche.
+          </p>
         </div>
-      )}
 
-      {isLoaded && purchases.length === 0 && (
-        <Card className="w-full max-w-lg mx-auto text-center py-12">
-            <CardHeader>
-                <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground" />
-                <CardTitle className="mt-4">No Purchases Yet</CardTitle>
-                <CardDescription>
-                    You haven't bought any items yet. Start exploring the marketplace!
-                </CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Button asChild>
-                    <Link href="/browse">Browse Marketplace</Link>
-                </Button>
-            </CardContent>
-        </Card>
-      )}
+        {!isLoaded && (
+          <div className="space-y-6">
+              <Skeleton className="h-48 w-full rounded-3xl bg-white/5" />
+              <Skeleton className="h-48 w-full rounded-3xl bg-white/5" />
+              <Skeleton className="h-48 w-full rounded-3xl bg-white/5" />
+          </div>
+        )}
 
-      {isLoaded && purchases.length > 0 && (
-        <div className="space-y-6">
-          {[...purchases].reverse().map((purchase) => (
-            <Card key={purchase.transactionId} className="overflow-hidden">
-              <div className="flex flex-col sm:flex-row">
-                <div className="sm:w-1/3 relative aspect-video sm:aspect-square">
-                   <Image
-                        src={purchase.item.imageUrl}
-                        alt={purchase.item.name}
-                        fill
-                        className="object-cover"
-                    />
-                </div>
-                <div className="flex-1">
-                    <CardHeader>
-                      <div className="flex justify-between items-start">
-                          <div>
-                              <CardTitle className="font-headline text-2xl">{purchase.item.name}</CardTitle>
-                              <CardDescription>
-                                  Purchased on {format(new Date(purchase.purchaseDate), "MMMM d, yyyy 'at' h:mm a")}
-                              </CardDescription>
-                          </div>
-                          {purchase.status && <PaymentStatusBadge status={purchase.status} />}
-                      </div>
-                    </CardHeader>
-                    <CardContent className="grid gap-2">
-                         <div className="flex justify-between items-center">
-                            <span className="text-muted-foreground">Price</span>
-                             <div className="font-bold text-lg flex items-center gap-1">
-                                <AlgoIcon className="h-4 w-4" />
-                                <span>{purchase.item.price}</span>
+        {isLoaded && purchases.length === 0 && (
+          <Card className="w-full max-w-lg mx-auto text-center py-16 bg-background/40 backdrop-blur-xl border-white/10">
+              <CardHeader>
+                  <ShoppingBag className="mx-auto h-20 w-20 text-white/20" />
+                  <CardTitle className="mt-6 text-white">No Purchases Yet</CardTitle>
+                  <CardDescription className="text-white/60">
+                      You haven't bought any items yet. Start exploring the marketplace!
+                  </CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <Button asChild size="lg" className="px-10">
+                      <Link href="/browse">Browse Marketplace</Link>
+                  </Button>
+              </CardContent>
+          </Card>
+        )}
+
+        {isLoaded && purchases.length > 0 && (
+          <div className="space-y-6">
+            {[...purchases].reverse().map((purchase) => (
+              <Card key={purchase.transactionId} className="overflow-hidden bg-background/40 backdrop-blur-xl border-white/10 group transition-all hover:border-white/20">
+                <div className="flex flex-col sm:flex-row">
+                  <div className="sm:w-1/3 relative aspect-video sm:aspect-square overflow-hidden">
+                     <Image
+                          src={purchase.item.imageUrl}
+                          alt={purchase.item.name}
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                      />
+                  </div>
+                  <div className="flex-1 p-6 flex flex-col justify-between">
+                      <div className="space-y-4">
+                        <div className="flex justify-between items-start">
+                            <div>
+                                <CardTitle className="font-headline text-2xl text-white">{purchase.item.name}</CardTitle>
+                                <CardDescription className="text-white/60">
+                                    Purchased on {format(new Date(purchase.purchaseDate), "MMMM d, yyyy")}
+                                </CardDescription>
+                            </div>
+                            {purchase.status && <PaymentStatusBadge status={purchase.status} />}
+                        </div>
+                        
+                        <div className="grid gap-3 py-4 border-y border-white/10">
+                            <div className="flex justify-between items-center text-sm">
+                                <span className="text-white/60">Price</span>
+                                 <div className="font-bold text-xl text-primary flex items-center gap-1">
+                                    <AlgoIcon className="h-5 w-5" />
+                                    <span>{purchase.item.price}</span>
+                                </div>
+                            </div>
+                            <div className="flex justify-between items-center text-xs">
+                                <span className="text-white/40 font-mono">TX ID</span>
+                                <code className="text-white/60 bg-white/5 px-2 py-1 rounded-md">{purchase.transactionId}</code>
                             </div>
                         </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-muted-foreground">Transaction ID</span>
-                            <code className="text-sm bg-secondary px-2 py-1 rounded-md">{purchase.transactionId}</code>
-                        </div>
+                      </div>
+                      
+                      <div className="mt-6 flex items-center justify-between gap-4">
+                        <Button asChild variant="outline" className="flex-1 bg-white/5 border-white/10 text-white hover:bg-white/10">
+                            <Link href={`/item/${purchase.item.id}`}>View Details</Link>
+                        </Button>
                         {purchase.status === 'Held' && (
-                            <div className="flex justify-between items-center border-t border-dashed mt-2 pt-3">
-                                <span className="text-muted-foreground font-medium">Hold Duration</span>
-                                <span className="font-bold text-yellow-600">
+                            <div className="px-4 py-2 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
+                                <span className="text-xs text-yellow-400 block font-medium">Auto-release in</span>
+                                <span className="text-sm font-bold text-yellow-500">
                                     {formatDistanceToNow(new Date(purchase.purchaseDate))}
                                 </span>
                             </div>
                         )}
-                    </CardContent>
-                    <CardFooter>
-                         <Button asChild variant="outline">
-                            <Link href={`/item/${purchase.item.id}`}>View Item</Link>
-                        </Button>
-                    </CardFooter>
+                      </div>
+                  </div>
                 </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-      )}
-    </div>
+              </Card>
+            ))}
+          </div>
+        )}
+      </div>
+    </BeamsBackground>
   );
 }
