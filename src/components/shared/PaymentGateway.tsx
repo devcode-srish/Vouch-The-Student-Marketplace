@@ -29,7 +29,7 @@ export function PaymentGateway({ item, seller, onPaymentSuccess }: PaymentGatewa
   };
   
   const amountMicroAlgos = item.price * 1_000_000;
-  const note = `Payment for ${item.name} from AlgoSwap`;
+  const note = `Payment for ${item.name} from Vouche`;
   const algorandUrl = `algorand://${seller.address}?amount=${amountMicroAlgos}&note=${encodeURIComponent(note)}`;
   
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=512x512&data=${encodeURIComponent(algorandUrl)}`;

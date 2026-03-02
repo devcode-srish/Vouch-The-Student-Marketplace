@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const termsSections = [
     {
         title: "1. Acceptance of Terms",
-        content: "By accessing or using the AlgoSwap platform, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, you may not use our services. These terms apply to all users, including sellers, buyers, and casual browsers."
+        content: "By accessing or using the Vouche platform, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, you may not use our services. These terms apply to all users, including sellers, buyers, and casual browsers."
     },
     {
         title: "2. User Accounts",
@@ -17,7 +17,7 @@ const termsSections = [
     },
     {
         title: "4. Transactions and Payments",
-        content: "AlgoSwap facilitates transactions between buyers and sellers but is not a party to any transaction. We use a secure payment holding system where funds are held until the item exchange is confirmed by both parties. AlgoSwap is not responsible for the quality, safety, or legality of items listed."
+        content: "Vouche facilitates transactions between buyers and sellers but is not a party to any transaction. We use a secure payment holding system where funds are held until the item exchange is confirmed by both parties. Vouche is not responsible for the quality, safety, or legality of items listed."
     },
     {
         title: "5. Termination",

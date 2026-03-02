@@ -16,7 +16,7 @@ const privacySections = [
     },
     {
         title: "4. Data Security",
-        content: "We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction. We use a secure payment gateway and hold payments until transactions are confirmed to protect both buyers and sellers."
+        content: "We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction. We use a secure payment gateway and hold payments until transactions are confirmed to protect both buyers and sellers on Vouche."
     },
     {
         title: "5. Your Choices",

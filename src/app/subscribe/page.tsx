@@ -40,9 +40,10 @@ export default function SubscribePage() {
         console.log(`Selected plan: ${planName}`);
         toast({
             title: "🎉 Plan Selected!",
-            description: "Payment successful. Welcome to AlgoSwap!",
+            description: "Payment successful. Welcome to Vouche!",
         });
-        router.push('/');
+        // Direct to the main marketplace app
+        router.push('/browse');
     }
 
     return (
@@ -50,7 +51,7 @@ export default function SubscribePage() {
             <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-6xl font-bold font-headline">Choose Your Plan</h1>
                 <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-                    Select a subscription that best fits your organization's needs.
+                    Select a subscription that best fits your needs to start trading on the Vouche marketplace.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">

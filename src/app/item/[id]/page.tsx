@@ -70,7 +70,7 @@ export default function ItemPage({ params }: { params: { id: string } }) {
 
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <ShieldCheck className="w-5 h-5 text-green-500"/>
-            <span>All payments are held securely by AlgoSwap until you confirm the item exchange.</span>
+            <span>All payments are held securely by Vouche until you confirm the item exchange.</span>
           </div>
 
           <Button asChild size="lg" className="w-full text-lg py-7 bg-accent hover:bg-accent/90">

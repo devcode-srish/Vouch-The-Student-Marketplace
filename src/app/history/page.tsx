@@ -48,7 +48,7 @@ export default function HistoryPage() {
         <ScrollText className="mx-auto h-12 w-12 text-primary" />
         <h1 className="text-4xl font-bold font-headline mt-4">My Purchases</h1>
         <p className="text-muted-foreground mt-2">
-          A record of all your transactions on AlgoSwap.
+          A record of all your transactions on Vouche.
         </p>
       </div>
 
@@ -71,7 +71,7 @@ export default function HistoryPage() {
             </CardHeader>
             <CardContent>
                 <Button asChild>
-                    <Link href="/">Browse Marketplace</Link>
+                    <Link href="/browse">Browse Marketplace</Link>
                 </Button>
             </CardContent>
         </Card>

@@ -59,7 +59,7 @@ export default function RewardsPage() {
                 Redeem Another Reward
               </Button>
               <Button asChild variant="outline" className="mt-4 w-full">
-                <Link href="/">Back to Marketplace</Link>
+                <Link href="/browse">Back to Marketplace</Link>
               </Button>
             </CardContent>
           </Card>
@@ -73,7 +73,7 @@ export default function RewardsPage() {
       <header className="text-center mb-12">
         <Gift className="mx-auto h-12 w-12 text-primary" />
         <h1 className="text-4xl md:text-6xl font-bold font-headline mt-4">
-          AlgoSwap Rewards
+          Vouche Rewards
         </h1>
         <p className="text-lg text-muted-foreground mt-4">
           Redeem your hard-earned AlgoCoins for exclusive gifts.

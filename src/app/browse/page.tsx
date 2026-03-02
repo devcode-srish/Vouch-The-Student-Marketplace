@@ -37,7 +37,7 @@ export default function BrowsePage() {
         
         <div className="relative z-20 text-center px-6 w-full max-w-2xl">
           <h1 className="text-4xl md:text-7xl font-bold font-headline tracking-tighter text-white drop-shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            AlgoSwap
+            Vouche
           </h1>
           <p className="text-lg md:text-2xl text-white/90 mt-4 font-medium tracking-wide animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
             Find what you need on campus
