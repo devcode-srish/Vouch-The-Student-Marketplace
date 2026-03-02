@@ -18,14 +18,16 @@ import { Card, CardContent } from "../ui/card";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 
 const formSchema = z.object({
   role: z.enum(["customer", "admin"], {
     required_error: "You must select a role.",
   }),
-  email: z.string(), // Keep email but don't always require it
+  email: z.string(),
   password: z.string().min(1, { message: "Password is required." }),
+  rememberMe: z.boolean().default(false),
 }).refine((data) => {
     if (data.role === 'customer') {
         return z.string().email({message: "Please enter a valid email."}).min(1).safeParse(data.email).success;
@@ -47,6 +49,7 @@ export function LoginForm() {
       role: "customer",
       email: "",
       password: "",
+      rememberMe: false,
     },
   });
 
@@ -72,15 +75,16 @@ export function LoginForm() {
     } else {
         toast({
             title: "Logged In!",
-            description: "Redirecting to subscription page...",
+            description: "Welcome back to Vouche.",
         });
-        router.push('/subscribe');
+        // New flow: Login -> Intro -> Subscription -> Browse
+        router.push('/intro');
     }
   }
 
   return (
-    <Card>
-      <CardContent className="p-6">
+    <Card className="border-none bg-transparent shadow-none">
+      <CardContent className="p-0">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
              <FormField
@@ -88,7 +92,7 @@ export function LoginForm() {
               name="role"
               render={({ field }) => (
                 <FormItem className="space-y-3">
-                  <FormLabel>Login as...</FormLabel>
+                  <FormLabel className="text-white/80">Login as...</FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={(value) => {
@@ -100,17 +104,17 @@ export function LoginForm() {
                     >
                       <FormItem className="flex items-center space-x-2 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value="customer" />
+                          <RadioGroupItem value="customer" className="border-primary text-primary" />
                         </FormControl>
-                        <FormLabel className="font-normal">
+                        <FormLabel className="font-normal text-white">
                           Customer
                         </FormLabel>
                       </FormItem>
                       <FormItem className="flex items-center space-x-2 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value="admin" />
+                          <RadioGroupItem value="admin" className="border-primary text-primary" />
                         </FormControl>
-                        <FormLabel className="font-normal">
+                        <FormLabel className="font-normal text-white">
                           Admin
                         </FormLabel>
                       </FormItem>
@@ -127,9 +131,14 @@ export function LoginForm() {
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Email Address</FormLabel>
+                    <FormLabel className="text-white/80">Email Address</FormLabel>
                     <FormControl>
-                        <Input type="email" placeholder="name@organization.com" {...field} />
+                        <Input 
+                          type="email" 
+                          placeholder="name@organization.com" 
+                          {...field} 
+                          className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:ring-primary h-12"
+                        />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
@@ -142,15 +151,42 @@ export function LoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-white/80">Password</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder={role === 'admin' ? 'Enter admin password' : '••••••••'} {...field} />
+                    <Input 
+                      type="password" 
+                      placeholder={role === 'admin' ? 'Enter admin password' : '••••••••'} 
+                      {...field} 
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:ring-primary h-12"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full bg-primary hover:bg-primary/90" size="lg" disabled={form.formState.isSubmitting}>
+
+            <FormField
+              control={form.control}
+              name="rememberMe"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      className="border-white/20 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel className="text-sm font-medium text-white/60 cursor-pointer">
+                      Remember me
+                    </FormLabel>
+                  </div>
+                </FormItem>
+              )}
+            />
+
+            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Login
             </Button>

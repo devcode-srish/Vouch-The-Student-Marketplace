@@ -1,6 +1,5 @@
-'use client';
+"use client";
 
-import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/layout/Header";
@@ -14,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  // Hide navigation on entry and auth screens for a cleaner look
-  const hideNav = pathname === "/" || pathname === "/login" || pathname === "/register";
+  // Hide navigation on entry, intro and auth screens for a cleaner look
+  const hideNav = pathname === "/" || pathname === "/intro" || pathname === "/login" || pathname === "/register";
 
   return (
     <html lang="en" suppressHydrationWarning>

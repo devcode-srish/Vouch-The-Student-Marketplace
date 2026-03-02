@@ -1,0 +1,33 @@
+"use client";
+
+import Hero from "@/components/ui/animated-shader-hero";
+import { useRouter } from "next/navigation";
+
+export default function IntroPage() {
+  const router = useRouter();
+
+  return (
+    <div className="w-full">
+      <Hero
+        trustBadge={{
+          text: "The premium marketplace for campus life.",
+          icons: ["✨"]
+        }}
+        headline={{
+          line1: "Vouche",
+          line2: "The student marketplace"
+        }}
+        subtitle="Trade textbooks, lab gear, and tech securely with your campus community. Powered by Algorand."
+        buttons={{
+          primary: {
+            text: "Click to Enter",
+            onClick: () => router.push('/subscribe')
+          }
+        }}
+      />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20 text-xs font-mono tracking-widest uppercase pointer-events-none z-20">
+        Powered by Algorand
+      </div>
+    </div>
+  );
+}

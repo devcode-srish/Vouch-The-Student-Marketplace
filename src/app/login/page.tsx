@@ -1,32 +1,12 @@
 "use client";
 
-import { LoginForm } from "@/components/auth/LoginForm";
-import Hero from "@/components/ui/animated-shader-hero";
-import Link from 'next/link';
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
-  return (
-    <div className="w-full">
-      <Hero
-        headline={{
-          line1: "",
-          line2: ""
-        }}
-        className="h-screen"
-      >
-        <div className="w-full max-w-md mx-auto space-y-6">
-          <div className="bg-background/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden">
-            <LoginForm />
-          </div>
-          
-          <p className="text-center text-sm text-white/70 bg-black/20 backdrop-blur-sm py-3 px-6 rounded-full inline-block w-full">
-            Don&apos;t have an account?{' '}
-            <Link href="/register" className="font-semibold text-primary hover:underline">
-              Register
-            </Link>
-          </p>
-        </div>
-      </Hero>
-    </div>
-  );
+export default function RedirectToRoot() {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/");
+  }, [router]);
+  return null;
 }
