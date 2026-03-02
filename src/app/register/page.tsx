@@ -9,8 +9,8 @@ export default function RegisterPage() {
     <div className="w-full">
       <Hero
         headline={{
-          line1: "Create",
-          line2: "Account"
+          line1: "",
+          line2: ""
         }}
         className="h-screen"
       >

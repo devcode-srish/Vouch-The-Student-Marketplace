@@ -14,7 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const isLandingPage = pathname === "/";
+  // Hide navigation on entry and auth screens for a cleaner look
+  const hideNav = pathname === "/" || pathname === "/login" || pathname === "/register";
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -25,8 +26,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <title>Vouch - The Student Marketplace</title>
-        <meta name="description" content="A Gen-Z marketplace for students powered by Algorand." />
+        <title>Vouche - The Student Marketplace</title>
+        <meta name="description" content="A premium student marketplace powered by Algorand." />
       </head>
       <body className="font-body antialiased">
         <ThemeProvider
@@ -36,9 +37,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col">
-            {!isLandingPage && <Header />}
+            {!hideNav && <Header />}
             <main className="flex-grow">{children}</main>
-            {!isLandingPage && <Footer />}
+            {!hideNav && <Footer />}
           </div>
           <Toaster />
         </ThemeProvider>

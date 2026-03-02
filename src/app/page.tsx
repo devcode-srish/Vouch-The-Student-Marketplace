@@ -10,11 +10,11 @@ export default function LandingPage() {
     <div className="w-full">
       <Hero
         trustBadge={{
-          text: "The #1 marketplace for campus life.",
+          text: "The premium marketplace for campus life.",
           icons: ["✨"]
         }}
         headline={{
-          line1: "AlgoSwap",
+          line1: "Vouche",
           line2: "The student marketplace"
         }}
         subtitle="Trade textbooks, lab gear, and tech securely with your campus community. Powered by Algorand."

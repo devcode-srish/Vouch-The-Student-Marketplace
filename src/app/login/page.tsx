@@ -9,8 +9,8 @@ export default function LoginPage() {
     <div className="w-full">
       <Hero
         headline={{
-          line1: "Welcome",
-          line2: "Back"
+          line1: "",
+          line2: ""
         }}
         className="h-screen"
       >

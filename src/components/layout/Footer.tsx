@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <VoucheLogo />
-            <span className="font-bold text-xl font-headline">AlgoSwap</span>
+            <span className="font-bold text-xl font-headline">Vouche</span>
           </div>
           <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-muted-foreground">
             <Link href="/about" className="hover:text-foreground">About</Link>
@@ -18,7 +18,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-8 text-center text-xs text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} AlgoSwap. All rights reserved. Made for students, by students.</p>
+          <p>&copy; {new Date().getFullYear()} Vouche. All rights reserved. Made for students, by students.</p>
         </div>
       </div>
     </footer>

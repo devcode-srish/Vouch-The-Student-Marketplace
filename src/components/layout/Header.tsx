@@ -43,11 +43,11 @@ export default function Header() {
     <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background/80 backdrop-blur-sm px-4 md:px-6 z-50">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
-          href="/browse"
+          href="/"
           className="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
           <VoucheLogo />
-          <span className="font-bold text-xl font-headline">AlgoSwap</span>
+          <span className="font-bold text-xl font-headline">Vouche</span>
         </Link>
         {navLinks.map((link) => (
           <NavLink key={link.href} {...link} />
@@ -63,11 +63,11 @@ export default function Header() {
         <SheetContent side="left">
           <nav className="grid gap-6 text-lg font-medium">
             <Link
-              href="/browse"
+              href="/"
               className="flex items-center gap-2 text-lg font-semibold"
             >
               <VoucheLogo />
-              <span className="sr-only">AlgoSwap</span>
+              <span className="sr-only">Vouche</span>
             </Link>
             {navLinks.map((link) => (
               <NavLink key={link.href} {...link} />
