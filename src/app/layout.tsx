@@ -1,20 +1,21 @@
+'use client';
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
-
-export const metadata: Metadata = {
-  title: "AlgoSwap",
-  description: "A Gen-Z marketplace for students.",
-};
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isLandingPage = pathname === "/";
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -24,6 +25,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <title>Vouch - The Student Marketplace</title>
+        <meta name="description" content="A Gen-Z marketplace for students powered by Algorand." />
       </head>
       <body className="font-body antialiased">
         <ThemeProvider
@@ -33,9 +36,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col">
-            <Header />
+            {!isLandingPage && <Header />}
             <main className="flex-grow">{children}</main>
-            <Footer />
+            {!isLandingPage && <Footer />}
           </div>
           <Toaster />
         </ThemeProvider>

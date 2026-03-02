@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useEffect, useRef } from "react"
@@ -134,7 +133,7 @@ export function ShaderAnimation() {
   return (
     <div
       ref={containerRef}
-      className="w-full h-full"
+      className="w-full h-screen"
       style={{
         background: "#000",
         overflow: "hidden",
