@@ -20,12 +20,8 @@ export default function LandingPage() {
         subtitle="Trade textbooks, lab gear, and tech securely with your campus community. Powered by Algorand."
         buttons={{
           primary: {
-            text: "Get Started",
+            text: "Click to Enter",
             onClick: () => router.push('/login')
-          },
-          secondary: {
-            text: "Browse Now",
-            onClick: () => router.push('/browse')
           }
         }}
       />

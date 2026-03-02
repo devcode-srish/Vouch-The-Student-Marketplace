@@ -188,6 +188,7 @@ export default function Hero({
   className = ""
 }: HeroProps) {
   const canvasRef = useShaderBackground();
+  const hasHeadline = headline.line1 || headline.line2;
 
   return (
     <div className={`relative w-full h-screen overflow-hidden bg-black ${className}`}>
@@ -219,14 +220,20 @@ export default function Hero({
 
         <div className="text-center space-y-6 max-w-5xl mx-auto px-4">
           {/* Main Heading */}
-          <div className="space-y-2">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-fade-in-up animation-delay-200">
-              {headline.line1}
-            </h1>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 bg-clip-text text-transparent animate-fade-in-up animation-delay-400">
-              {headline.line2}
-            </h1>
-          </div>
+          {hasHeadline && (
+            <div className="space-y-2">
+              {headline.line1 && (
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-fade-in-up animation-delay-200">
+                  {headline.line1}
+                </h1>
+              )}
+              {headline.line2 && (
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 bg-clip-text text-transparent animate-fade-in-up animation-delay-400">
+                  {headline.line2}
+                </h1>
+              )}
+            </div>
+          )}
           
           {/* Subtitle */}
           {subtitle && (
@@ -239,7 +246,7 @@ export default function Hero({
 
           {/* Dynamic Content (Forms etc) */}
           {children && (
-            <div className="animate-fade-in-up animation-delay-600">
+            <div className="animate-fade-in-up animation-delay-600 w-full flex justify-center">
               {children}
             </div>
           )}
