@@ -3,7 +3,7 @@ The GenZ Student Marketplace with Smart Escrow & Campus-Only Commerce
 
 Vouch is a secure, campus-exclusive digital marketplace where students buy and sell essentials with confidence. The platform introduces a QR-based escrow release system, seller trust tiers, rewards economy, and an admin analytics dashboard — all wrapped in a clean, aesthetic, GenZ-coded UI.
 
-Live Demo link: https://9000-firebase-studio-1770477116255.cluster-aic6jbiihrhmyrqafasatvzbwe.cloudworkstations.dev 
+Live Demo link: https://9000-firebase-studio-1770477116255.cluster-aic6jbiihrhmyrqafasatvzbwe.cloudworkstations.dev
 
 🚀 Vision
 
