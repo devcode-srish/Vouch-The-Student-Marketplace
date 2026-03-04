@@ -1,360 +1,269 @@
-🟠 Vouch
-The GenZ Student Marketplace with Smart Escrow & Campus-Only Commerce
+# 🛍️ Vouch – The Student Marketplace (Powered by Algorand)
 
-Vouch is a secure, campus-exclusive digital marketplace where students buy and sell essentials with confidence. The platform introduces a QR-based escrow release system, seller trust tiers, rewards economy, and an admin analytics dashboard — all wrapped in a clean, aesthetic, GenZ-coded UI.
+> A secure, campus-focused peer-to-peer marketplace with escrow protection and QR-based handoff verification — powered by the Algorand blockchain.
 
-Live Demo link: https://9000-firebase-studio-1770477116255.cluster-aic6jbiihrhmyrqafasatvzbwe.cloudworkstations.dev
+Live Demo Link: https://9000-firebase-studio-1770477116255.cluster-aic6jbiihrhmyrqafasatvzbwe.cloudworkstations.dev 
 
-🚀 Vision
+---
 
-Vouch solves a real student problem:
+# 📌 Overview
 
-Unsafe peer-to-peer payments
+**Vouch** is a student-only digital marketplace designed to eliminate fraud in campus buying and selling.
 
-Fake listings
+Unlike traditional marketplaces, Vouch uses:
 
-No trust layer
+* 🔐 Blockchain-backed escrow (Algorand)
+* 📱 QR-based physical exchange validation
+* ⭐ Trust score & reputation system
+* 🏆 Reward economy for active users
+* 📊 Admin monitoring & analytics dashboard
 
-No campus exclusivity
+The goal is simple:
 
-Vouch introduces:
+> No scams. No fake payments. No unsafe exchanges.
 
-✔ Secure held-payment escrow
-✔ QR-based physical verification
-✔ Seller trust tiers
-✔ Rewards-based ecosystem
-✔ Admin analytics dashboard
-✔ UPI-integrated payment system
+---
 
-🧠 Core Concept: Smart Escrow with QR Validation
+# 🚀 Core Features
 
-Instead of direct payment:
+## 1️⃣ Secure Escrow System (Algorand-Based)
 
-Buyer pays through UPI / Card
+Funds are locked in a smart escrow wallet until both buyer and seller confirm the exchange.
 
-Vouch holds the money
+✔ Buyer pays → Funds locked on Algorand
+✔ QR generated for transaction
+✔ Seller scans QR during meetup
+✔ Funds released automatically
 
-A unique QR is generated
+---
 
-Seller scans QR during in-person exchange
+## 2️⃣ QR-Based Transaction Validation
 
-If validated → Payment released (minus 5% commission)
+Every transaction generates a unique QR containing:
 
-This ensures:
+* Transaction ID
+* Escrow reference
+* Buyer ID
+* Seller ID
+* Timestamp
 
-No fake delivery claims
+This ensures physical exchange verification before fund release.
 
-No payment fraud
+---
 
-Secure handover confirmation
+## 3️⃣ Trust & Reputation Engine
 
-Vouch platform overview:
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1df7573a-f603-4581-9033-15248fb3f241" />
+Users earn trust points based on:
 
+* Successful transactions
+* Positive ratings
+* Account age
+* Dispute-free history
 
-🏗 System Architecture Overview
- <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/6c02823f-f5ab-4991-baf1-a8b3bd55834b" />
+Higher trust = Higher visibility.
 
-📊 Application Workflow Diagram
+---
 
-<<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c8ba1d77-6c33-40ec-b50f-1d209fb93e8c" />
+## 4️⃣ Reward Economy
 
+Users earn platform credits for:
 
+* Completing transactions
+* Referring students
+* Maintaining high trust
 
+Credits can be used for:
 
-🔐 Escrow & QR Validation Logic
-On Successful Payment:
-    Generate Unique Transaction ID
-    Generate Unique QR Code
-    Save Transaction with Status = "Held"
+* Promoted listings
+* Fee discounts
 
-On QR Scan:
-    If QR matches transaction ID:
-        Status → Completed
-        Release Payment
-        Deduct 5% Commission
-    Else:
-        Reject
-👤 User Roles
-1️⃣ Customer
+---
 
-Browse items
+## 5️⃣ Admin Dashboard
 
-Buy products
+Admins can:
 
-View purchase history
+* Monitor transactions
+* View dispute logs
+* Track user activity
+* Freeze suspicious accounts
 
-Track payment status (Completed / Held / Failed)
+---
 
-Earn reward coins
+# 🏗️ System Architecture
 
-2️⃣ Seller
+```mermaid
+flowchart LR
+    A[User - Buyer] --> B[Frontend - Next.js]
+    C[User - Seller] --> B
+    B --> D[Backend APIs]
+    D --> E[Escrow Smart Contract]
+    E --> F[Algorand Blockchain]
+    D --> G[Database]
+    D --> H[QR Generator Service]
+```
+
+---
+
+# 🔄 Complete Transaction Flow
+
+```mermaid
+sequenceDiagram
+    participant Buyer
+    participant Frontend
+    participant Backend
+    participant Escrow
+    participant Seller
+
+    Buyer->>Frontend: Select item & Pay
+    Frontend->>Backend: Create transaction
+    Backend->>Escrow: Lock funds (Algorand)
+    Escrow-->>Backend: Escrow ID
+    Backend-->>Frontend: Generate QR
+    Buyer->>Seller: Meet physically
+    Seller->>Frontend: Scan QR
+    Frontend->>Backend: Validate QR
+    Backend->>Escrow: Release funds
+    Escrow-->>Seller: Transfer payment
+```
+
+---
+
+# 💰 Escrow Logic Flowchart
+
+```mermaid
+flowchart TD
+    A[Buyer Initiates Purchase] --> B[Payment Sent to Escrow]
+    B --> C[Escrow Confirms Lock]
+    C --> D[Generate Unique QR Code]
+    D --> E[Physical Meetup]
+    E --> F{QR Valid?}
+    F -- Yes --> G[Release Funds to Seller]
+    F -- No --> H[Transaction Blocked]
+```
+
+---
+
+# 🧠 Trust Score Calculation Model
 
-List items
+```mermaid
+flowchart LR
+    A[Successful Transactions] --> D[Trust Engine]
+    B[Positive Ratings] --> D
+    C[Account Age] --> D
+    E[Disputes] --> D
+    D --> F[Final Trust Score]
+```
 
-Track orders
+---
 
-Gain trust ratings
+# 🗂️ Project Structure
 
-Scan QR to confirm delivery
+```
+Vouch/
+│
+├── src/
+│   ├── components/      # UI Components
+│   ├── pages/           # Application Routes
+│   ├── api/             # Backend API Routes
+│   ├── services/        # Escrow + Blockchain Logic
+│   └── utils/           # Helper functions
+│
+├── docs/                # Diagrams & documentation
+├── public/              # Static assets
+├── package.json
+└── next.config.ts
+```
 
-Receive payment after validation
+---
 
-3️⃣ Admin
+# 🔐 Why Algorand?
 
-Login (Password: 12345)
+Algorand provides:
 
-View:
+* ⚡ High-speed finality (~4 seconds)
+* 💸 Extremely low transaction fees
+* 🔒 Secure smart contracts
+* 🌍 Energy-efficient blockchain
 
-Timestamp logs
+This makes it ideal for micro-transactions in a student economy.
 
-Location of login
+---
 
-Device/platform used
+# ⚙️ Tech Stack
 
-Payment method used
+| Layer      | Technology           |
+| ---------- | -------------------- |
+| Frontend   | Next.js + TypeScript |
+| Styling    | Tailwind CSS         |
+| Backend    | API Routes           |
+| Blockchain | Algorand             |
+| Database   | Firestore / NoSQL    |
+| QR System  | Dynamic QR Generator |
 
-Payment status
+---
 
-Platform analytics dashboard
+# 🛡️ Security Model
 
-🏅 Seller Trust Tier System
-Tier	Requirement
-🥉 Bronze	New sellers
-🥈 Silver	10+ successful sales
-🥇 Gold	30+ successful sales
-💎 Platinum	75+ successful sales + 4.5★ rating
+✔ Escrow-based smart contract logic
+✔ QR validation before release
+✔ Server-side transaction verification
+✔ Admin monitoring
+✔ Dispute handling system
 
-Trust impacts:
+---
 
-Listing visibility
+# 📈 Scalability Design
 
-Buyer confidence
+The system supports scaling by:
 
-Ranking priority
+* Stateless backend APIs
+* Blockchain-based payment handling
+* Cloud-hosted database
+* Modular microservice-ready structure
 
-🎁 Rewards Economy
+---
 
-Every transaction earns Vouch Coins.
+# 🔮 Future Enhancements
 
-Coins can be redeemed for:
+* 📱 Mobile app version
+* 🧾 On-chain transaction history viewer
+* 🧠 AI fraud detection engine
+* 🎓 University email verification integration
+* 💳 Native Algorand wallet integration
 
-Brand vouchers
+---
 
-Campus merchandise
+# 🎯 Problem Solved
 
-Tech accessories
+Campus marketplaces often suffer from:
 
-Gift cards
+❌ Fake UPI screenshots
+❌ Non-payment after handoff
+❌ Anonymous scammers
 
-Rewards Redemption Flow
-User Selects Reward
-        │
-        ▼
-Confirm Redemption
-        │
-        ▼
-Check Coin Balance
-        │
-        ├── Enough Coins → Deduct & Show Success Page
-        │
-        └── Not Enough → Error Prompt
-📦 Purchase History Module
+Vouch eliminates these through blockchain-backed escrow and QR confirmation.
 
-Each purchase shows:
+---
 
-Item Name
+# 🏁 Conclusion
 
-Unique Transaction ID
+Vouch is not just a marketplace.
 
-Payment Method
+It is a **trust infrastructure for student commerce**, built on the reliability of Algorand and modern full-stack architecture.
 
-Payment Status:
+---
 
-Completed
+# 📜 License
 
-Held
+MIT License
 
-Failed
+---
 
-Held Duration (if applicable)
+# 💡 Built For
 
-Example:
+Hackathons • Campus Deployments • Web3 Innovation • Secure Peer Commerce
 
-Item: Lab Coat
-ID: VCH-839291
-Status: Held
-Held For: 1 day 4 hours
-Payment Mode: GPay
-📈 Admin Dashboard Architecture
-Admin Login
-    │
-    ▼
-Role Validation
-    │
-    ▼
-Access Dashboard
-    │
-    ├── Login Logs Table
-    ├── Platform Distribution Chart
-    ├── Payment Mode Breakdown
-    ├── Payment Status Insights
-    └── Transaction Trends
-Dashboard Includes
+---
 
-Login Timestamp
-
-User Location
-
-Device / OS
-
-Payment Method Used
-
-Payment Status
-
-Example cases:
-
-Completed
-
-Failed
-
-Held
-
-📌 UML – Class Diagram
-User
- ├── id
- ├── name
- ├── role
- ├── rewardCoins
- └── rating
-
-Seller extends User
- ├── trustTier
- └── successfulSales
-
-Listing
- ├── id
- ├── title
- ├── price
- ├── image
- └── sellerId
-
-Transaction
- ├── id
- ├── buyerId
- ├── sellerId
- ├── listingId
- ├── paymentMethod
- ├── status
- ├── timestamp
- └── qrCode
-
-Reward
- ├── id
- ├── name
- ├── coinCost
- └── image
-🎯 Use Case Diagram (Text Representation)
-Customer:
-  - Register
-  - Login
-  - Browse Listings
-  - Buy Item
-  - Redeem Reward
-  - View Purchases
-
-Seller:
-  - List Item
-  - Scan QR
-  - Receive Payment
-  - Gain Rating
-
-Admin:
-  - Login
-  - View Analytics
-  - Monitor Transactions
-  - Monitor Payment Status
-🎨 UI/UX Philosophy
-
-Inspired by modern minimal aesthetic platforms.
-
-Design Language:
-
-Serif Headlines
-
-Clean Sans-Serif Body
-
-Smooth Micro-interactions
-
-Floating 3D Headline Animation
-
-Warm neutral color palette
-
-Minimal clutter
-
-Large whitespace usage
-
-🛠 Tech Stack
-Layer	Technology
-Frontend	NextJS + TypeScript
-Styling	Tailwind CSS
-Animations	CSS + Motion
-Payments	UPI Simulation
-Storage	Local Storage / DB
-QR Engine	Dynamic QR Generator
-Admin Analytics	Charts + Mock Data
-🔁 Complete Transaction Lifecycle
-Listing Created
-        │
-Buyer Pays
-        │
-Escrow Activated
-        │
-QR Generated
-        │
-Physical Exchange
-        │
-QR Verified
-        │
-Payment Released
-        │
-Commission Deducted (5%)
-        │
-Seller Tier Updated
-        │
-Coins Awarded
-🔮 Future Scope
-
-Real UPI API integration
-
-AI fraud detection
-
-College email verification
-
-Blockchain escrow
-
-NFT-based campus identity
-
-Campus ambassador program
-
-In-app chat
-
-Delivery scheduling
-
-🏁 Conclusion
-
-Vouch is more than a marketplace.
-
-It is:
-
-A trust protocol for students
-
-A smart escrow engine
-
-A reward economy
-
-A campus-only commerce layer
-
-Built for GenZ.
-Designed for security.
-Engineered for scale.
+If you like this project, consider ⭐ starri
